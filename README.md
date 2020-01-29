@@ -1,24 +1,35 @@
-# README
+# Odin Facebook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+ The original project requirments can be found on The Odin Project - [Odin Facebook](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project )
 
-* System dependencies
+## Built With
 
-* Configuration
+- Ruby (version 2.6.3)
+- Ruby on Rails (version 5.2.4)
 
-* Database creation
+## Authors
 
-* Database initialization
+👤 **Ermin Cahtarevic**
 
-* How to run the test suite
+- Github: [@ermin-cahtarevic](https://github.com/ermin-cahtarevic)
 
-* Services (job queues, cache servers, search engines, etc.)
+👤 **Vashira Samaila**
 
-* Deployment instructions
+- Github: [@Vashiramusa](https://github.com/Vashiramusa)
 
-* ...
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/ermin-cahtarevic/odin-facebook/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- [Microverse](https://www.microverse.org/)
+- [The Odin Project](https://www.theodinproject.com/)
