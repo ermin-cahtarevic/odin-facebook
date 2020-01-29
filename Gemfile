@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'faker', '~> 2.10', '>= 2.10.1'
 gem 'devise'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
