@@ -3,9 +3,9 @@
     <nav class="facebook">
       <%= link_to "FakeBook", root_path, class: "logo" %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Posts", '#' %></li>
         <% if user_signed_in? %>
-           <li><%= link_to "User", user_path %></li>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Profile", user_path %></li>
           <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to 'Log in', new_user_session_path %></li>  

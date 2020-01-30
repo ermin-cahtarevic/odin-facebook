@@ -1,0 +1,12 @@
+<ul>
+  <% @users.each do |user| %>
+    <aside>
+      <section class="user_info">
+        <h1><%= gravatar_for user %></h1>
+        <h3>First Name: <%= user.first_name %></h3>
+        <h3>Last Name: <%= user.last_name %></h3>
+        <%= link_to 'Add Friend', '#', class: 'btn btn-primary' %>
+      </section>
+    </aside>
+  <% end %>
+</ul>
