@@ -6,7 +6,9 @@
           <h1><%= gravatar_for user %></h1>
           <h3><%= user.first_name %> <%= user.last_name %></h3>
         </div>  
-        <%= link_to 'Add Friend', '#', class: 'btn btn-primary add_friend' %>
+        <% unless user == current_user %>
+          <%= link_to 'Add Friend', '#', class: 'btn btn-primary add_friend' %>
+        <% end %>
       </section>
     </aside>
   <% end %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_signed_in?, only: [:show]
+  before_action :authenticate_user!, only: [:show, :index]
 
   def show
     @user = current_user
