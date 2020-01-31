@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :index, :create, :edit, :update]
+  before_action :authenticate_user!, only: %i[show index create edit update]
 
   def create
     @post = current_user.posts.build(post_params)
@@ -22,9 +22,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    if current_user
-      @post = current_user.posts.build
-    end
+    @post = current_user.posts.build if current_user
     @posts = Post.all
   end
 
