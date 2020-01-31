@@ -9,7 +9,8 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:danger] = "Content can't be empty!"
-      render 'new'
+      @posts = Post.all
+      render 'index'
     end
   end
 

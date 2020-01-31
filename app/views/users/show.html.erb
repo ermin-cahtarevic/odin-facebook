@@ -1,5 +1,5 @@
 <div class="row">
-  <aside>
+  <aside class="profile-info">
     <section class="user_info profile">
       <div>
         <h1><%= gravatar_for @user %></h1>
@@ -8,5 +8,17 @@
        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-primary add_friend' %>
     </section>
   </aside>
-
+  <div class="timeline-center">
+    <ul class="post-list">
+      <% @posts.each do |post| %>
+        <li class="post-item">
+          <h1 class="post-img"><%= gravatar_for(post.user, options = { size: 50 }) %></h1>
+          <h5><%= post.user.first_name %> <%= post.user.last_name %></h5>
+          <div><%= post.content %></div>
+          <p>Likes</p>
+          <p>Comments</p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

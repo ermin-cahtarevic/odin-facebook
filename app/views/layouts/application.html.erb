@@ -12,8 +12,9 @@
   <body class="body-background">
     <%= render 'layouts/header' %>
     <div class="spacing"></div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,3 +1,9 @@
-example_id                         | status | run_time        |
----------------------------------- | ------ | --------------- |
-./spec/authentication_spec.rb[1:1] | passed | 0.60839 seconds |
+example_id                                     | status | run_time        |
+---------------------------------------------- | ------ | --------------- |
+./spec/integration/authentication_spec.rb[1:1] | passed | 0.07815 seconds |
+./spec/integration/create_post_spec.rb[1:1]    | passed | 4.75 seconds    |
+./spec/models/post_spec.rb[1:1:1]              | passed | 0.00281 seconds |
+./spec/models/post_spec.rb[1:1:2]              | passed | 0.00255 seconds |
+./spec/models/post_spec.rb[1:2:1:1]            | passed | 0.00105 seconds |
+./spec/models/user_spec.rb[1:1]                | passed | 0.0036 seconds  |
+./spec/models/user_spec.rb[1:2]                | passed | 0.00188 seconds |
