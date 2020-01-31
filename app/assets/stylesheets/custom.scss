@@ -71,4 +71,66 @@
 
 .post-img {
   margin: 10px;
+} 
+
+.user_info {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  
+  div {
+    display: flex;
+    align-items: center;
+    h3 {
+      margin: 0 10px;
+      font-size: 17px;
+      color: rgb(43, 89, 216);
+    }
+  }
+}
+
+.profile {
+  margin-left: 40px;
+}
+
+
+/* form */
+
+.form-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-label {
+  width: 100%;
+  font-size: 17px;
+  margin: 10px 0 5px;
+}
+
+.form-input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.form-btn {
+  width: 100%;
+  margin-top: 15px;
+  height: 50px;
+  background-color:rgb(43, 89, 216);
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px #888888;
 }

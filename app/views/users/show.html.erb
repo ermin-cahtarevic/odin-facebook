@@ -1,9 +1,11 @@
 <div class="row">
   <aside>
-    <section class="user_info">
-      <h1><%= gravatar_for @user %></h1>
-      <h3>First Name: <%= @user.first_name %></h3>
-      <h3>Last Name: <%= @user.last_name %></h3>
+    <section class="user_info profile">
+      <div>
+        <h1><%= gravatar_for @user %></h1>
+        <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+      </div>
+       <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-primary add_friend' %>
     </section>
   </aside>
 
