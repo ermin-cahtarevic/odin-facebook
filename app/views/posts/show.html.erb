@@ -1,3 +1,17 @@
-<h1>Post</h1>
+<div class="post-item post-page">
+  <h1 class="post-img"><%= gravatar_for(@post.user, options = { size: 50 }) %></h1>
+  <h5><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
+  <div><%= @post.content %></div>
+  <p>Likes</p>
+  <p>Comments</p>
+</div>
+<%= render  'comments/new', post: {post: @post} %>
 
-<p><%= @post.content %></p>
+<% @comments.each do |comment| %>
+  <div class="post-comments">
+    <h1 class="post-img"><%= gravatar_for(@post.user, options = { size: 30 }) %></h1>
+    <h5><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
+    <div><%= comment.comment_text %></div>
+    <div><%= link_to 'Delete comment', post_comment_path(@post.id, comment.id), method: :delete %></div>
+  </div>
+<% end %>

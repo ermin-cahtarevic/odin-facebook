@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
   before_action :post_find
   before_action :like_find, only: [:destroy]
+  
   def create
     @post.likes.build(user_id: current_user.id)
     redirect_to root_path
@@ -8,6 +9,7 @@ class LikesController < ApplicationController
 
   def destroy
     @like.destroy
+    redirect_to root_path
   end
 
   private
