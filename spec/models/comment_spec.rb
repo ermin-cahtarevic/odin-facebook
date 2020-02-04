@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   before :each do
     user = User.create(first_name: 'User', last_name: 'Name', email: 'example@example.com', password: 'password',
-               password_confirmation: 'password')
+                       password_confirmation: 'password')
     @post = user.posts.create(content: 'Post content')
   end
 
