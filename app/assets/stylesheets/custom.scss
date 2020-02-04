@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap"; 
+@import "font-awesome"; 
 
 
 .logo {
@@ -273,7 +274,15 @@
     }
   }
 }
+.disliked {
+  font-size: 22px;
+  margin: 10px 0 0 10px;
+}
 
+.liked {
+  font-size: 22px;
+  margin: 8px 0 0 10px;
+}
 
 
 

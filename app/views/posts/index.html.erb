@@ -14,9 +14,13 @@
             <div><%= post.content %></div>
 
             <% if liked?(post) %>
-              <%= button_to 'Dislike', post_like_path(post, liked?(post)), method: :delete %>
+              <%= link_to post_like_path(post, liked?(post)), method: :delete do%> 
+              <i class="fa fa-thumbs-down disliked"></i> 
+              <%end%>
             <% else %>
-              <%= button_to 'Like', post_likes_path(post), method: :post %>
+              <%= link_to post_likes_path(post), method: :post do%>
+              <i class="fa fa-thumbs-up liked"></i> 
+              <%end%>
             <% end %>
 
             <p><%= pluralize(post.likes.count, 'like') %></p>
