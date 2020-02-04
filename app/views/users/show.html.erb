@@ -15,7 +15,14 @@
           <h1 class="post-img"><%= gravatar_for(post.user, options = { size: 50 }) %></h1>
           <h5><%= post.user.first_name %> <%= post.user.last_name %></h5>
           <div><%= post.content %></div>
-          <p>Likes</p>
+          <%if liked?(post) %>
+            <%= button_to 'Dislike', post_like_path(post, liked?(post)), method: :delete %>
+          <% else %>
+            <%= button_to 'Like', post_likes_path(post), method: :post %>
+          <%end%>
+
+          <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
           <p>Comments</p>
         </li>
       <% end %>
