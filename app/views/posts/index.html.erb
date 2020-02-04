@@ -14,11 +14,11 @@
             <div><%= post.content %></div>
 
             <% if liked?(post) %>
-              <%= link_to post_like_path(post, liked?(post)), method: :delete do%> 
+              <%= link_to post_like_path(post, liked?(post)), method: :delete , title: "Like" do%> 
               <i class="fa fa-thumbs-down disliked"></i> 
               <%end%>
             <% else %>
-              <%= link_to post_likes_path(post), method: :post do%>
+              <%= link_to post_likes_path(post), method: :post, title: "Dislike"  do%>
               <i class="fa fa-thumbs-up liked"></i> 
               <%end%>
             <% end %>
