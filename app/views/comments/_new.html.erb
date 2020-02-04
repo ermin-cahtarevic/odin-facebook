@@ -1,5 +1,7 @@
 <%= form_for([post[:post], Comment.new]) do |f| %>
-  <%= f.text_area :comment_text, placeholder: 'New comment' %>
+  <div class="field-post com-field">
+  <%= f.text_area :comment_text, placeholder: 'New comment', class: 'com-index field' %>
   <%= f.hidden_field :post_id, value: post[:post].id %>
-  <%= f.submit 'Comment', class: 'form-btn btn btn-primary' %>
+  </div>
+  <%= f.submit 'Comment', class: 'comment-btn index-com btn btn-primary' %>
 <% end %>

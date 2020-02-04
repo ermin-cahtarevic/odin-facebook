@@ -4,12 +4,12 @@ class LikesController < ApplicationController
 
   def create
     @post.likes.create(user_id: current_user.id)
-    redirect_to root_path
+    redirect_to request.referrer
   end
 
   def destroy
     @like.destroy
-    redirect_to root_path
+    redirect_to request.referrer
   end
 
   private

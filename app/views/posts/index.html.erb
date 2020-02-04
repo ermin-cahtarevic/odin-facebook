@@ -7,22 +7,35 @@
     </aside>
     <div class="">
       <ul class="post-list">
-        <% @posts.each do |post| %>
-          <li class="post-item">
+        <% @posts.reverse.each do |post| %>
+          <li class="post-item post-index">
             <h1 class="post-img"><%= gravatar_for(post.user, options = { size: 50 }) %></h1>
             <h5><%= post.user.first_name %> <%= post.user.last_name %></h5>
             <div><%= post.content %></div>
 
-            <%if liked?(post) %>
+            <% if liked?(post) %>
               <%= button_to 'Dislike', post_like_path(post, liked?(post)), method: :delete %>
             <% else %>
               <%= button_to 'Like', post_likes_path(post), method: :post %>
-            <%end%>
+            <% end %>
 
-            <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-
-            <%= link_to 'Comments', post_path(id: post.id) %>
+            <p><%= pluralize(post.likes.count, 'like') %></p>
+            <p><%= pluralize(post.comments.count, 'comment') %></p>
+            <p><%= link_to 'Post page', post_path(post.id) %></p>
           </li>
+          <div class="comment-form">
+            <%= render  'comments/new', post: {post: post} %>
+          </div>
+          <% post.comments.each do |comment| %>
+            <div class="post-comments index-comment">
+              <h1 class="post-img"><%= gravatar_for(@post.user, options = { size: 40 }) %></h1>
+              <div class="comment-text">
+                <h5><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
+                <div class="com-text"><%= comment.comment_text %></div>
+                <div class="delete-btn"><%= link_to 'Delete comment', post_comment_path(post.id, comment.id), method: :delete %></div>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </ul>
     </div>

@@ -16,12 +16,12 @@ class CommentsController < ApplicationController
     else
       flash[:danger] = 'Successfully failed!'
     end
-    redirect_to post_path(@post)
+    redirect_to request.referrer
   end
 
   def destroy
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to request.referrer
   end
 
   private

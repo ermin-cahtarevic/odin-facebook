@@ -1,24 +1,32 @@
-<div class="post-item post-page">
-  <h1 class="post-img"><%= gravatar_for(@post.user, options = { size: 50 }) %></h1>
-  <h5><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
-  <div><%= @post.content %></div>
-  <%if liked?(@post) %>
-    <%= button_to 'Dislike', post_like_path(@post, liked?(@post)), method: :delete %>
-  <% else %>
-    <%= button_to 'Like', post_likes_path(@post), method: :post %>
-  <%end%>
+<div class="timeline-center">
+  <div class="timeline-row">
+    <div class="post-item post-page">
+      <h1 class="post-img"><%= gravatar_for(@post.user, options = { size: 50 }) %></h1>
+      <h5><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
+      <div><%= @post.content %></div>
+      <%if liked?(@post) %>
+        <%= button_to 'Dislike', post_like_path(@post, liked?(@post)), method: :delete %>
+      <% else %>
+        <%= button_to 'Like', post_likes_path(@post), method: :post %>
+      <%end%>
 
-  <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+      <p><%= pluralize(@post.likes.count, 'like') %></p>
+      <p><%= pluralize(@post.comments.count, 'comment') %></p>
+    </div>
 
-  <p>Comments</p>
-</div>
-<%= render  'comments/new', post: {post: @post} %>
+    <section class="post-form post-show">
+      <%= render  'comments/new', post: {post: @post} %>
+    </section>
 
-<% @comments.each do |comment| %>
-  <div class="post-comments">
-    <h1 class="post-img"><%= gravatar_for(@post.user, options = { size: 30 }) %></h1>
-    <h5><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
-    <div><%= comment.comment_text %></div>
-    <div><%= link_to 'Delete comment', post_comment_path(@post.id, comment.id), method: :delete %></div>
+    <% @comments.each do |comment| %>
+      <div class="post-comments">
+        <h1 class="post-img"><%= gravatar_for(@post.user, options = { size: 40 }) %></h1>
+        <div class="comment-text">
+          <h5><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
+          <div class="com-text"><%= comment.comment_text %></div>
+          <div class="delete-btn"><%= link_to 'Delete comment', post_comment_path(@post.id, comment.id), method: :delete %></div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
