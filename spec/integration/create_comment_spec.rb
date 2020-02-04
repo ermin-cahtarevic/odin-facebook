@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Create Post', type: :feature do
+RSpec.feature 'Create Comment', type: :feature do
   before :each do
     user = User.create!(first_name: 'User', last_name: 'Name', email: 'example@example.com', password: 'password',
                         password_confirmation: 'password')
@@ -12,10 +12,10 @@ RSpec.feature 'Create Post', type: :feature do
     click_button 'Log in'
   end
 
-  scenario 'Post creation', type: :feature do
+  scenario 'Comment creation', type: :feature do
     expect(page).to have_text 'Signed in successfully.'
-    page.fill_in 'Content', with: 'Test post'
-    click_button 'Post'
-    expect(page).to have_text 'Post created successfully!'
+    page.fill_in 'Comment', with: 'Test comment'
+    click_button 'Comment'
+    expect(page).to have_text 'Comment added'
   end
 end

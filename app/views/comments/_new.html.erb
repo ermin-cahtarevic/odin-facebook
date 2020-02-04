@@ -1,5 +1,6 @@
 <%= form_for([post[:post], Comment.new]) do |f| %>
   <div class="field-post com-field">
+  <%= f.label :comment_text, 'Comment' %>
   <%= f.text_area :comment_text, placeholder: 'New comment', class: 'com-index field' %>
   <%= f.hidden_field :post_id, value: post[:post].id %>
   </div>
