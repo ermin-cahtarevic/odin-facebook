@@ -1,7 +1,13 @@
 class FriendshipsController < ApplicationController
   before_action :authenticate_user!
+
+  def new
+    @friendship = Friendship.new
+  end
+
   def create
-    friendship = current_user.friendships.create(friend_params)
+    user = User.find(params[:id])
+    friendship = current_user.friendships.create(reciever_id: user.id, status: false)
     if friendship.save
       flash[:success] = 'friendship request send'
     else

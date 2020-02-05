@@ -7,7 +7,7 @@
           <h3><%= user.first_name %> <%= user.last_name %></h3>
         </div>  
         <% unless user == current_user %>
-          <%= link_to 'Add Friend', friends_create_path(:reciever_id, user.id), method: :post, class: 'btn btn-primary add_friend' %>
+          <%= link_to 'Add Friend', "#{root_path}friends/create/#{user.id}", method: :post, class: 'btn btn-primary add_friend' %>
         <% end %>
       </section>
     </aside>
