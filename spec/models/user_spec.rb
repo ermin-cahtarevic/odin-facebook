@@ -10,4 +10,14 @@ RSpec.describe User, type: :model do
     assc = User.reflect_on_association(:posts)
     expect(assc.macro).to eq :has_many
   end
+
+  it 'has many comments' do
+    assc = User.reflect_on_association(:comments)
+    expect(assc.macro).to eq :has_many
+  end
+
+  it 'has many likes' do
+    assc = User.reflect_on_association(:likes)
+    expect(assc.macro).to eq :has_many
+  end
 end
