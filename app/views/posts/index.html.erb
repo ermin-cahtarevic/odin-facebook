@@ -32,11 +32,13 @@
           </div>
           <% post.comments.each do |comment| %>
             <div class="post-comments index-comment">
-              <h1 class="post-img"><%= gravatar_for(@post.user, options = { size: 40 }) %></h1>
+              <h1 class="post-img"><%= gravatar_for(comment.user, options = { size: 40 }) %></h1>
               <div class="comment-text">
-                <h5><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
+                <h5><%= comment.user.first_name %> <%= comment.user.last_name %></h5>
                 <div class="com-text"><%= comment.comment_text %></div>
-                <div class="delete-btn"><%= link_to 'Delete comment', post_comment_path(post.id, comment.id), method: :delete %></div>
+                <% if comment_author(comment) %>
+                  <div class="delete-btn"><%= link_to 'Delete comment', post_comment_path(post.id, comment.id), method: :delete %></div>
+                <% end %>
               </div>
             </div>
           <% end %>
