@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   get "/user", to: "users#show"
   get '/users', to: 'users#index'
+  post '/friends/create', to: 'friendships#create'
+  delete '/friends/destroy', to: 'friendships#destroy'
   resources :posts do
     resources :likes, only: %i[create destroy]
     resources :comments, only: %i[create destroy]

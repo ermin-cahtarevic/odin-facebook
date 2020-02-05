@@ -7,25 +7,30 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :friendships, foreign_key: :sender_id
   has_many :inverse_friendships, class_name: :Friendship, foreign_key: :reciever_id
-  
+
   def friend_list
     friend_list = friendships.map { |friendship| friendship.reciever if friendship.status }
-    friend_list + inverse_friendships.map { |friendship| friendship.sender if friendship.status }
+    friend_list += inverse_friendships.map { |friendship| friendship.sender if friendship.status }
     friend_list.compact
   end
 
   def sent_requests
-    friendships.map { |friendship| friendship.reciever if !friendship.status }.compact
+    friendships.map { |friendship| friendship.reciever unless friendship.status }.compact
   end
 
   def recieved_requests
-    inverse_friendships.map { |friendship| friendship.sender if !friendship.status }.compact
+    inverse_friendships.map { |friendship| friendship.sender unless friendship.status }.compact
   end
 
   def confirm_request(sender)
     friendship = inverse_friendships.find { |friendship| friendship.sender == sender }
     friendship.status = true
     friendship.save
+  end
+
+  def reject_request(sender)
+   friendship = inverse_friendships.find { |friendship| friendship.sender == sender }
+   friendship.destroy
   end
 
   def friend?(user)
