@@ -1,10 +1,6 @@
 class FriendshipsController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-    @friendship = Friendship.new
-  end
-
   def create
     user = User.find(params[:id])
     friendship = current_user.friendships.create(reciever_id: user.id, status: false)
@@ -21,9 +17,8 @@ class FriendshipsController < ApplicationController
     reject_request(sender)
   end
 
-  private
-
-  def friend_params
-    params.require(:friendship).permit(:reciever_id)
+  def index
+    @friendships = current_user.friendships  
+    @inverse_friendships = current_user.inverse_friendships
   end
 end

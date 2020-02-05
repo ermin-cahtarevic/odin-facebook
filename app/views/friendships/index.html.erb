@@ -1,0 +1,11 @@
+<h4><%=pluralize(@friendships.count, 'notification')%></h4>
+
+<% @friendships.each do |request|%>
+  <p> <%= request.first_name %> <%request.last_name%></p>
+  <%= link_to 'Accept request', '#', method: :put %>
+<%end%>  
+
+<h4>Sent friend requests</h4>
+<%= @inverse_friendships.each do |pending|%>
+<p> <%= pending.first_name %> <%pending.last_name%></p>
+<%end%>
