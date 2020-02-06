@@ -13,4 +13,8 @@ class User < ApplicationRecord
    friendship = inverse_friendships.find { |friendship| friendship.sender == sender }
    friendship.destroy
   end
+
+  def friend_with?(user)
+    true if (inverse_friendships.find_by(sender_id: user.id, status: true) || friendships.find_by(reciever_id: user.id, status: true))
+  end
 end
