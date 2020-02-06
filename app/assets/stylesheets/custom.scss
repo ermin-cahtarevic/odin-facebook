@@ -284,5 +284,57 @@
   margin: 8px 0 0 10px;
 }
 
+/* notifications */
 
+.notifications-wrap {
+  width: 900px;
+  text-align: center;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+  h4 {
+    margin: 20px 0;
+  }
+  .notifications {
+    margin: 15px 0 20px;
+  }
+  .friend-requests {
+    width: 400px;
+    .request {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      background-color: white;
+      border: 1px solid rgb(197, 197, 197);
+      border-radius: 6px;
+      p {
+        margin: 0;
+      }
+      .name {
+        color: #2b59d8;
+        font-size: 16px;
+        img {
+          width: 45px;
+        }
+      }
+    }
+  }
+}
 
+.sent-requests {
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  .sent-name {
+    color: #2b59d8;
+    font-size: 16px;
+    background-color: white;
+    padding: 10px;
+    width: 180px;
+    margin: 5px;
+    img.gravatar {
+      width: 40px;
+    }
+  }
+}
