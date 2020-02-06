@@ -9,9 +9,9 @@ class FriendshipsController < ApplicationController
     user = User.find(params[:id])
     friendship = current_user.friendships.create(reciever_id: user.id, status: false)
     if friendship.save
-      flash[:success] = 'friendship request send'
+      flash[:success] = 'Friend request sent'
     else
-      flash[:danger] = 'fail'
+      flash[:danger] = 'Failed'
     end
     redirect_to request.referrer
   end
