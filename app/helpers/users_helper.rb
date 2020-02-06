@@ -8,17 +8,18 @@ module UsersHelper
 
   def pending?(user)
     current_user.friendships.find_by(reciever_id: user.id)
-  end  
+  end
 
   def recieved?(user)
     current_user.inverse_friendships.find_by(sender_id: user.id, status: false)
-  end  
+  end
 
   def friends?(user)
-    if (Friendship.where(sender_id: user.id, reciever_id: current_user.id,     status: true) || Friendship.where(sender_id: current_user.id, reciever_id: user.id, status: true))
-     return true
-    end 
-   false
-  end  
+    if Friendship.where(sender_id: user.id, reciever_id: current_user.id, status: true) ||
+       Friendship.where(sender_id: current_user.id, reciever_id: user.id, status: true)
+      return true
+    end
 
+    false
+  end
 end

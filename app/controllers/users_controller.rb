@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @friendships = current_user.friendships  
+    @friendships = current_user.friendships
     @inverse_friendships = current_user.inverse_friendships
   end
 end

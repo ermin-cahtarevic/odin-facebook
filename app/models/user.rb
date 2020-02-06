@@ -8,9 +8,8 @@ class User < ApplicationRecord
   has_many :friendships, foreign_key: :sender_id
   has_many :inverse_friendships, class_name: :Friendship, foreign_key: :reciever_id
 
-
   def reject_request(sender)
-   friendship = inverse_friendships.find { |friendship| friendship.sender == sender }
-   friendship.destroy
+    friendship = inverse_friendships.find { |f| f.sender == sender }
+    friendship.destroy
   end
 end

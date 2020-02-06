@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   get "/user", to: "users#show"
   get '/users', to: 'users#index'
   post '/friends/create/:id', to: 'friendships#create'
-  #delete '/friends/destroy', to: 'friendships#destroy'
-  #put '/friends/accept/:id', to: 'friendships#update'
   resources :friendships, only: %i[update destroy index]
   resources :posts do
     resources :likes, only: %i[create destroy]
