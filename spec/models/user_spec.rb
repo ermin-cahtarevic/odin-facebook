@@ -20,4 +20,14 @@ RSpec.describe User, type: :model do
     assc = User.reflect_on_association(:likes)
     expect(assc.macro).to eq :has_many
   end
+
+  it 'has many friendships' do
+    assc = User.reflect_on_association(:friendships)
+    expect(assc.macro).to eq :has_many
+  end
+
+  it 'has many inverse friendships' do
+    assc = User.reflect_on_association(:inverse_friendships)
+    expect(assc.macro).to eq :has_many
+  end
 end

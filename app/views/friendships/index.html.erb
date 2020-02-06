@@ -1,0 +1,26 @@
+<div class="notifications-wrap">
+  <div>
+    <h4 class="notifications"><%=pluralize(@inverse_friendships.count, 'notification')%></h4>
+    <div class="friend-requests">
+      <% @inverse_friendships.reverse.each do |request|%>
+        <div class="request">
+          <p class="name"><%= gravatar_for request.sender %> <%= request.sender.first_name %> <%= request.sender.last_name %></p>
+          <% if friend?(request.sender) %>
+            <p>Friend request accepted</p>
+          <% else %>
+            <%= link_to 'Accept request', friendship_path(request.sender), method: :put, class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>  
+  </div>
+
+  <div>
+    <h4>Sent friend requests</h4>
+    <div class="sent-requests">
+      <% @friendships.reverse.each do |pending|%>
+        <p class="sent-name"><%= gravatar_for pending.sender %> <%= pending.reciever.first_name %> <%= pending.reciever.last_name %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
