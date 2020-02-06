@@ -15,10 +15,9 @@ module UsersHelper
   end  
 
   def friends?(user)
-    if (Friendship.where(sender_id: user.id, reciever_id: current_user.id,     status: true) || Friendship.where(sender_id: current_user.id, reciever_id: user.id, status: true))
-     return true
-    end 
-   false
+    @friendship = Friendship.where(:sender_id => [user.id, current_user.id])
+    return true if @friendship
+    false
   end  
 
 end
