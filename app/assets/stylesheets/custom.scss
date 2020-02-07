@@ -316,6 +316,7 @@
         font-size: 16px;
         img {
           width: 45px;
+          margin-right: 10px;
         }
       }
     }
@@ -335,6 +336,7 @@
     margin: 5px;
     img.gravatar {
       width: 40px;
+      float: left;
     }
   }
 }
@@ -342,5 +344,5 @@
 .friend {
   font-size: 16px;
   color: #2b59d8;
-  margin-right: 5px;
+  margin: 0 5px;
 }

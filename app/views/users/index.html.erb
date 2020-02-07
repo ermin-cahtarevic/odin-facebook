@@ -12,7 +12,7 @@
           <%elsif recieved?(user)%>
             <%= link_to 'Accept request', friendship_path(user), method: :put, class: 'btn btn-primary' %> 
           <%elsif current_user.friend_with?(user)%>
-            <p class="friend">Friend</p> 
+            <p class="friend">Friends</p> 
           <%else%> 
              <%= link_to 'Add Friend', "#{root_path}friends/create/#{user.id}", method: :post, class: 'btn btn-primary add_friend' %>
           <%end%>   
