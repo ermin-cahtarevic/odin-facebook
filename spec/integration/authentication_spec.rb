@@ -7,6 +7,7 @@ RSpec.feature 'Authentications', type: :feature do
     visit new_user_session_path
     have_link 'Log in', href: new_user_session_path
     have_link 'Sign up', href: new_user_registration_path
+    have_link 'Sign in with Facebook', href: user_facebook_omniauth_authorize_path
     page.fill_in 'Email', with: 'example@example.com'
     page.fill_in 'Password', with: 'password'
     click_button 'Log in'
