@@ -7,15 +7,15 @@
           <h3><%= user.first_name %> <%= user.last_name %></h3>
         </div>  
         <% unless user == current_user %>
-          <%if pending?(user)%>
+          <% if pending?(user) %>
             <p class="friend">Friend request sent</p>
-          <%elsif recieved?(user)%>
+          <% elsif recieved?(user) %>
             <%= link_to 'Accept request', friendship_path(user), method: :put, class: 'btn btn-primary' %> 
-          <%elsif current_user.friend_with?(user)%>
+          <% elsif current_user.friend_with?(user) %>
             <p class="friend">Friends</p> 
-          <%else%> 
+          <% else %> 
              <%= link_to 'Add Friend', "#{root_path}friends/create/#{user.id}", method: :post, class: 'btn btn-primary add_friend' %>
-          <%end%>   
+          <% end %>   
         <% end %>
       </section>
     </aside>
