@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   root "static_pages#home"
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, :controllers => { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
   get "/user", to: "users#show"
   get '/users', to: 'users#index'
   post '/friends/create/:id', to: 'friendships#create'

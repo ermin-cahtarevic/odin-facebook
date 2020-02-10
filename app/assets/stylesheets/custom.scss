@@ -346,3 +346,18 @@
   color: #2b59d8;
   margin: 0 5px;
 }
+
+.fb-button {
+  width: 250px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  i {
+    font-size: 25px;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}

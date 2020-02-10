@@ -7,4 +7,8 @@
   <p class="sign-in">Sign in</p>
   <%= link_to "Sign in now!", new_user_session_path, class: "btn btn-lg btn-primary" %>
 
+  <div class="fb-button btn btn-lg btn-primary">
+    <i class="fa fa-facebook-f"></i>
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+  </div>
 </div>
