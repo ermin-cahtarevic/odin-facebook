@@ -15,6 +15,8 @@
 
  The original project requirments can be found on The Odin Project - [Odin Facebook](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project )
 
+ ![screenshot](./fakebook-desktop.png)
+
  The Live Version - [Fakebook](https://afternoon-river-58456.herokuapp.com/)
 
 
