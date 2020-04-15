@@ -34,6 +34,18 @@
   - gem 'rspec'
   - gem 'capybara'
 
+## Usage
+
+Clone the repository to your machine and cd into the directory
+
+````
+$ git clone git@github.com:ermin-cahtarevic/odin-facebook.git
+$ cd odin-facebook
+````
+Use the following command to start the rails server then visit: http://localhost:3000 to use the app
+````
+$ rails s
+````
 ## Authors
 
 👤 **Ermin Cahtarevic**
