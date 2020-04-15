@@ -46,6 +46,12 @@ Use the following command to start the rails server then visit: http://localhost
 ````
 $ rails s
 ````
+Run RSpec tests
+
+````
+$ rspec
+````
+
 ## Authors
 
 👤 **Ermin Cahtarevic**
